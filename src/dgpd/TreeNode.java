@@ -8,16 +8,32 @@ public class TreeNode {
 	
 	public TreeNode() {
 		super();
-		this.data = new Places();
+		this.data = null;;
 		this.leftSubTree = null;
 		this.rightSubTree = null;
 	}
 
+	public TreeNode(Places data) {
+		super();
+		this.data = data;
+		this.leftSubTree = null;
+		this.rightSubTree = null;
+	}
+	
 	public TreeNode(Places data, TreeNode leftSubTree, TreeNode rightSubTree) {
 		super();
 		this.data = data;
 		this.leftSubTree = leftSubTree;
 		this.rightSubTree = rightSubTree;
+	}
+
+	@Override
+	public String toString() {
+		return "TreeNode [data=" + data + ", leftSubTree=" + leftSubTree + ", rightSubTree=" + rightSubTree + "]";
+	}
+	
+	public void display() {
+		toString();
 	}
 
 	public Places getData() {

@@ -16,10 +16,29 @@ public class PlaceTree {
 		this.root = root;
 	}
 	
+	public boolean isEmpty() {
+		if(root == null) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public boolean isFull() {
+		TreeNode temp = new TreeNode();
+		if(temp == null) {
+			return true;
+		}else {
+			temp = null;//delete temp;
+			return false;
+		}
+	}
+	
 	public void insert(Places data) {
 		TreeNode n, t;
 		n = new TreeNode();
-		if(n!=null) {
+		if(!isFull()) {
 			n.setData(data);
 			n.setLeftSubTree(null);
 			n.setRightSubTree(null);
@@ -55,4 +74,26 @@ public class PlaceTree {
 			System.out.println("Error: Out of memory, cannot add new node.");
 		}
 	}
+	
+	public void preOrder(TreeNode current) {
+		if(current == null)return;
+		System.out.println(current.getData().toString()+" ");
+		preOrder(current.getLeftSubTree());
+		preOrder(current.getRightSubTree());
+	}
+	
+	public void inOrder(TreeNode current) {
+		if(current == null)return;
+		System.out.println(current.getLeftSubTree().toString()+" ");
+		System.out.println(current.getData().toString()+" ");
+		inOrder(current.getRightSubTree());
+	}
+
+	public void postOrder(TreeNode current) {
+		if(current == null)return;
+		postOrder(current.getLeftSubTree());
+		postOrder(current.getRightSubTree());
+		System.out.println(current.getData().toString()+" ");
+	}
+	
 }

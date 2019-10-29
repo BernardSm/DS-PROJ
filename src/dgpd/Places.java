@@ -8,7 +8,7 @@ public class Places {
 	private int parishCode;
 	private float cost;
 	private OpeningHours oh;
-	private int contactNumber;
+	private String contactNumber;
 	private String imageUrl; //may need a check
 	private String mainAttraction;
 	
@@ -23,16 +23,16 @@ public class Places {
 		this.parishCode = 0;
 		this.cost = 0.0f;
 		this.oh = new OpeningHours();
-		this.contactNumber = 0;
+		this.contactNumber = "";
 		this.imageUrl = "";
 		this.mainAttraction = "";
 	}
 
 
 	public Places(int id, String name, String description, String address, int parishCode, float cost, OpeningHours oh,
-			int contactNumber, String imageUrl, String mainAttraction) {
+			String contactNumber, String imageUrl, String mainAttraction) {
 		super();
-		this.id = 0;
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.address = address;
@@ -115,12 +115,12 @@ public class Places {
 	}
 
 
-	public int getContactNumber() {
+	public String getContactNumber() {
 		return contactNumber;
 	}
 
 
-	public void setContactNumber(int contactNumber) {
+	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
