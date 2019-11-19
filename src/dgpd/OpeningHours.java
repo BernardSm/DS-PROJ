@@ -138,6 +138,8 @@ public class OpeningHours {
 	public void setEveryDay(boolean everyDay) {
 		this.everyDay = everyDay;
 	}
+
+
 	
 	
 	

@@ -1,5 +1,9 @@
 package dgpd;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Places {
 	private int id;
 	private String name;
@@ -9,11 +13,10 @@ public class Places {
 	private float cost;
 	private OpeningHours oh;
 	private String contactNumber;
-	private String imageUrl; //may need a check
+	private String imageUrl; // may need a check
 	private String mainAttraction;
-	
-	
-	
+
+	//default constructor
 	public Places() {
 		super();
 		this.id = 0;
@@ -28,7 +31,7 @@ public class Places {
 		this.mainAttraction = "";
 	}
 
-
+	//Primary Constructor 
 	public Places(int id, String name, String description, String address, int parishCode, float cost, OpeningHours oh,
 			String contactNumber, String imageUrl, String mainAttraction) {
 		super();
@@ -44,114 +47,215 @@ public class Places {
 		this.mainAttraction = mainAttraction;
 	}
 
-
+	//Getters and Setters
+	
 	public int getId() {
 		return id;
 	}
-
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
 	public String getName() {
 		return name;
 	}
-
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
 	public String getDescription() {
 		return description;
 	}
-
 
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-
 	public String getAddress() {
 		return address;
 	}
-
 
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
-
 	public int getParishCode() {
 		return parishCode;
 	}
-
 
 	public void setParishCode(int parishCode) {
 		this.parishCode = parishCode;
 	}
 
-
 	public float getCost() {
 		return cost;
 	}
-
 
 	public void setCost(float cost) {
 		this.cost = cost;
 	}
 
-	
 	public OpeningHours getOh() {
 		return oh;
 	}
-
 
 	public void setOh(OpeningHours oh) {
 		this.oh = oh;
 	}
 
-
 	public String getContactNumber() {
 		return contactNumber;
 	}
-
 
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
-
 	public String getImageUrl() {
 		return imageUrl;
 	}
-
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
 
-
 	public String getMainAttraction() {
 		return mainAttraction;
 	}
-
 
 	public void setMainAttraction(String mainAttraction) {
 		this.mainAttraction = mainAttraction;
 	}
 
-
+	//To String Method
 	@Override
 	public String toString() {
 		return "Places [id=" + id + ", name=" + name + ", description=" + description + ", address=" + address
 				+ ", parishCode=" + parishCode + ", cost=" + cost + ", contactNumber=" + contactNumber
 				+ ", mainAttraction=" + mainAttraction + "]";
+	};
+
+	//Displays the values of the attributes 
+	public void display() {
+		System.out.println(toString());
 	}
+
 	
-	
-	
+	//Function to get user response, search and displays the attraction in selected parish
+	String Parish;
+	@SuppressWarnings("resource")
+	public void Parish() {
+		int id = 0;
+		String name = "";
+		String description = "";
+		String address = "";
+		int parishCode = 0;
+		float cost = 0;
+		OpeningHours oh = new OpeningHours(); 
+		String contactNumber = "";
+		String imageUrl = ""; 
+		String mainAttraction = "";
+		boolean sunday, monday, tuesday, wednesday, thursday, friday, saturday;
+		int to, from;
+		
+		Scanner Response= new Scanner(System.in);
+		System.out.println("Please enter Gimmi all a di place dem inna [Parish name]");
+		String response = Response.nextLine(); 
+		String testString = "Gimmi all a di place dem inna ";
+		int testStringLength = testString.length();
+		
+		String lastword = response.substring(testStringLength);
+		//String[] parts = response.split("");
+		//String lastword =parts[parts.length - testStringlength];
+		
+		System.out.println(lastword);
+		boolean itemFound = false;
+		
+		
+		  if(lastword.contains("Kingston & St. Andrew") ||
+		  lastword.contains("Kingston") || lastword.contains("St. Andrew" )) {
+		  parishCode=1; }
+		  
+		  if(lastword.contains("St.Thomas")) { parishCode=2;
+		 
+		  } if(lastword.contains("Portland")) { parishCode=3;
+		  
+		  } if(lastword.contains("St. Mary")) { parishCode=4;
+		  
+		  } if(lastword.contains("St. Catherine")) { parishCode=5;
+		  
+		  } if(lastword.contains("Clarendon")) { parishCode=6;
+		  
+		  } if(lastword.contains("Manchester")) { parishCode=7 ;
+		  
+		  } if(lastword.contains("St. Ann")) { parishCode=8;
+		  
+		  } if( lastword.contains("St.Elizabeth")) { parishCode=9; }
+		  
+		  if(lastword.contains("St James")) { parishCode=10;
+		  
+		  } if(lastword.contains("Hanover")) { parishCode=11;
+		  
+		  } if(lastword.contains("Westmoreland")) { parishCode=12;
+		  
+		  } if(lastword.contains("Trelawny")) { parishCode=13; }
+		 
+		
+		try {
+			Scanner filereader = new Scanner(new File("places.txt"));//make sure the info is stored in one line for each record
+			
+			while (filereader.hasNext()) {
+				id = filereader.nextInt();
+				filereader.nextLine();
+				name = filereader.nextLine();
+				description = filereader.nextLine();
+				address = filereader.nextLine();
+				parishCode= filereader.nextInt();
+				filereader.nextLine();
+				cost = filereader.nextFloat();
+				
+				sunday = filereader.nextBoolean(); 
+				monday = filereader.nextBoolean(); 
+				tuesday = filereader.nextBoolean();
+				wednesday = filereader.nextBoolean(); 
+				thursday = filereader.nextBoolean(); 
+				friday = filereader.nextBoolean();
+				saturday = filereader.nextBoolean();
+				to = filereader.nextInt();
+				from = filereader.nextInt();
+				contactNumber= filereader.next();
+				imageUrl = filereader.next();
+				mainAttraction= filereader.next();
+				filereader.next();
+			
+				
+				
+				if (address.contains(lastword)) {
+					itemFound = true;
+					break;
+				}
+			}
+			if(itemFound == false) {
+				System.out.println("Place was not found");
+			}else {
+				System.out.println("Attraction Id: " + id);
+				System.out.println("Attraction Name: " + name);
+				System.out.println("Description"+description);
+				System.out.println("Address"+address);
+				System.out.println("parishCode"+parishCode);
+				System.out.println("Cost"+cost);
+				System.out.println("Contact Number"+contactNumber);
+				System.out.println("Image URL: " + imageUrl);
+				System.out.println("Main Attraction"+mainAttraction);
+			
+			}filereader.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Sorry, File was not found");
+		}
+		
+	}
 }
+		
+	

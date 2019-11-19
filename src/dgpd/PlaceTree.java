@@ -25,6 +25,7 @@ public class PlaceTree {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	public boolean isFull() {
 		TreeNode temp = new TreeNode();
 		if(temp == null) {
@@ -97,3 +98,4 @@ public class PlaceTree {
 	}
 	
 }
+

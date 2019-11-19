@@ -37,6 +37,7 @@ public class Admin {
 		this.name = name;
 		this.password = password;
 	}
+	
 
 	@Override
 	public String toString() {
@@ -118,14 +119,14 @@ public class Admin {
 		
 		try {
 	        
-			FileWriter file = new FileWriter("places.text", true);
-			String record = p.getId() + "\t" + p.getName() + "\t" + p.getDescription() + "\t" + p.getAddress() + "\t" + 
-			p.getParishCode() + "\t" + p.getCost() + "\t" + p.getOh().isSunday() + "\t" + p.getOh().isMonday() + "\t" + 
-			p.getOh().isTuesday() + "\t" + p.getOh().isWednesday() + "\t" + p.getOh().isThursday() + "\t" + 
-			p.getOh().isFriday() + "\t" + p.getOh().isSaturday() + "\t" + p.getOh().getFrom() + "\t" + 
-			p.getOh().getTo() + "\t" + p.getContactNumber() + "\t" + p.getImageUrl() + "\t" + p.getMainAttraction();
+			FileWriter file = new FileWriter("places.txt", true);
+			String record = p.getId() + "\n" + p.getName() + "\n" + p.getDescription() + "\n" + p.getAddress() + "\n" + 
+			p.getParishCode() + "\n" + p.getCost() + "\n" + p.getOh().isSunday() + "\n" + p.getOh().isMonday() + "\n" + 
+			p.getOh().isTuesday() + "\n" + p.getOh().isWednesday() + "\n" + p.getOh().isThursday() + "\n" + 
+			p.getOh().isFriday() + "\n" + p.getOh().isSaturday() + "\n" + p.getOh().getFrom() + "\n" + 
+			p.getOh().getTo() + "\n" + p.getContactNumber() + "\n" + p.getImageUrl() + "\n" + p.getMainAttraction();
 			
-			file.write(record + "\r\n");
+			file.write(record);
 			file.close();
 		}
 		catch(IOException e) {
@@ -143,37 +144,42 @@ public class Admin {
 			e.printStackTrace();
 		}
 		
-//		try {
-//			Scanner in = new Scanner(new File("places.txt", "rw"));
-//			Places p = new Places();
-//			//OpeningHours oh = new OpeningHours();
-//			
-//			while(in.hasNext()) {
-//				p.setId(in.nextInt());
-//				p.setName(in.next());
-//				p.setDescription(in.nextLine());
-//				p.setAddress(in.nextLine());
-//				p.setParishCode(in.nextInt());
-//				p.setCost(in.nextFloat());
-//				p.getOh().setSunday(in.nextBoolean());
-//				p.getOh().setMonday(in.nextBoolean());
-//				p.getOh().setTuesday(in.nextBoolean());
-//				p.getOh().setWednesday(in.nextBoolean());
-//				p.getOh().setThursday(in.nextBoolean());
-//				p.getOh().setFriday(in.nextBoolean());
-//				p.getOh().setSaturday(in.nextBoolean());
-//				p.getOh().setTo(in.nextInt());
-//				p.getOh().setFrom(in.nextInt());
-//				p.setContactNumber(in.next());
-//				p.setImageUrl(in.next());
-//				p.setMainAttraction(in.nextLine());
-//				p.toString();
-//			}
-//			in.close();
-//			
-//		}
-//		catch(IOException e) {
-//			e.getStackTrace();
-//		}
+		try {
+		Scanner in = new Scanner(new File("places.text", "rw"));
+			Places p = new Places();
+			//OpeningHours oh = new OpeningHours();
+			
+			while(in.hasNext()) {
+				p.setId(in.nextInt());
+				p.setName(in.next());
+				p.setDescription(in.nextLine());
+				p.setAddress(in.nextLine());
+				p.setParishCode(in.nextInt());
+				p.setCost(in.nextFloat());
+				p.getOh().setSunday(in.nextBoolean());
+				p.getOh().setMonday(in.nextBoolean());
+				p.getOh().setTuesday(in.nextBoolean());
+				p.getOh().setWednesday(in.nextBoolean());
+				p.getOh().setThursday(in.nextBoolean());
+				p.getOh().setFriday(in.nextBoolean());
+				p.getOh().setSaturday(in.nextBoolean());
+				p.getOh().setTo(in.nextInt());
+				p.getOh().setFrom(in.nextInt());
+				p.setContactNumber(in.next());
+				p.setImageUrl(in.next());
+				p.setMainAttraction(in.nextLine());
+				p.toString();
+				in.hasNextLine();
+				in.hasNextLine();
+				
+				System.out.println(p.toString());
+				//in.hasNextLine();
+				}
+			in.close();
+			
+		}
+		catch(IOException e) {
+			e.getStackTrace();
+		}
 	}
 }
