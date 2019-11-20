@@ -52,16 +52,16 @@ public class Driver {
 		}
 	
 	public static void adminMenu(Scanner in, Admin a, PlaceTree list) {
-		int opt2=0;
-		while(opt2!=4) {
+		int opt1=0;
+		while(opt1!=4) {
 			//System.out.println("\n::Before Entering the system please indicate which type of user are you::\n");
 	        System.out.println("::[1] Add a place \t\t\t::\n");
 	        System.out.println("::[2] View places \t\t\t::\n");
 	        System.out.println("::[3] View visitor requests \t\t\t::\n");
 	        System.out.println("::[4] Exit \t\t\t\t::\n");
-	        opt2 = in.nextInt();
+	        opt1 = in.nextInt();
 			
-			switch(opt2) {
+			switch(opt1) {
 			case 1:
 				a.addPlace(in, list);
 				break;
