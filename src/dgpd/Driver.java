@@ -15,6 +15,7 @@ public class Driver {
 	public static void menu(int opt, Visitor visitor, PlacesLinkedList placesList) {
 		Scanner in = new Scanner(System.in);
 		PlaceTree list = new PlaceTree();
+		RequestQueue q = new RequestQueue();
 
 		while (opt != 3) {
 
@@ -35,13 +36,13 @@ public class Driver {
 			
 			case 1:
 				Admin a = new Admin();
-				adminMenu(in, a, list);
+				adminMenu(in, a, list, q);
 				break;
 	
 			case 2:
 				Visitor v = new Visitor();
 				Places p = new Places();
-				visitorMenu(in, v, p);
+				visitorMenu(in, v, p, q);
 				break;
 	
 			case 3:
@@ -59,7 +60,7 @@ public class Driver {
 	
 	
 	
-	public static void adminMenu(Scanner in, Admin a, PlaceTree list) {
+	public static void adminMenu(Scanner in, Admin a, PlaceTree list, RequestQueue q) {
 		int opt1 = 0;
 		while (opt1 != 4) {
 			// System.out.println("\n::Before Entering the system please indicate which type
@@ -80,7 +81,7 @@ public class Driver {
 				break;
 
 			case 3:
-				// code
+				q.displayRequest();
 				break;
 
 			case 4:
@@ -96,7 +97,7 @@ public class Driver {
 	
 	
 
-	public static void visitorMenu(Scanner in, Visitor v, Places p) {
+	public static void visitorMenu(Scanner in, Visitor v, Places p, RequestQueue q) {
 		int opt2 = 0;
 		while (opt2 != 5) {
 			// System.out.println("\n::Before Entering the system please indicate which type
@@ -119,11 +120,11 @@ public class Driver {
 				break;
 
 			case 3:
-				// code
+				p.viewCheapest();
 				break;
 
 			case 4:
-				// code
+				v.request(q);
 				break;
 
 			case 5:

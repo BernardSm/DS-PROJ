@@ -46,9 +46,10 @@ public class Admin {
 
 	public void addPlace(Scanner in, PlaceTree list) {
 		
-		String name, desc, address, attraction, url, contact, str;
+		String name, desc, address, attraction, url, contact, str, everyday;
 		int parish, from, to;
 		float cost;
+		OpeningHours o;
 		Random rand = new Random();
 
 		
@@ -66,43 +67,61 @@ public class Admin {
 		System.out.println("Enter cost to visit destination");
 		cost = in.nextFloat();
 		
-		OpeningHours o = new OpeningHours();
-		System.out.println("Enter 'yes' or 'no' if the destination is open on the following days: \n");
-		System.out.println("Sunday ");
-		str = in.next();
-		o.setSunday(str.equals("yes"));
+		///////////////////////////////////////////////////
+		System.out.println("Is this place open everyday? Enter 'yes' or 'no'");
+		everyday = in.next();
+		if(everyday.equals("yes")) {
+			System.out.println("Enter opening time");
+			from = in.nextInt();
+			
+			System.out.println("Enter closing time");
+			to = in.nextInt();
+			
+			o = new OpeningHours(from, to, true);
+		}
+		else {
+			
+			o = new OpeningHours();
+			System.out.println("Enter 'yes' or 'no' if the destination is open on the following days: \n");
+			System.out.println("Sunday ");
+			str = in.next();
+			o.setSunday(str.equals("yes"));
+			
+			System.out.println("Monday ");
+			str = in.next();
+			o.setMonday(str.equals("yes"));
+			
+			System.out.println("Tuesday ");
+			str = in.next();
+			o.setTuesday(str.equals("yes"));
+			
+			System.out.println("Wednesday ");
+			str = in.next();
+			o.setWednesday(str.equals("yes"));
+			
+			System.out.println("Thursday ");
+			str = in.next();
+			o.setThursday(str.equals("yes"));
+			
+			System.out.println("Friday ");
+			str = in.next();
+			o.setFriday(str.equals("yes"));
+			
+			System.out.println("Saturday ");
+			str = in.next();
+			o.setSaturday(str.equals("yes"));
+			
+			System.out.println("Enter opening time");
+			from = in.nextInt();
+			o.setFrom(from);
+			
+			System.out.println("Enter closing time");
+			to = in.nextInt();
+			o.setTo(to);
+			
+		}
+		/////////////////////////////////////////////////////
 		
-		System.out.println("Monday ");
-		str = in.next();
-		o.setMonday(str.equals("yes"));
-		
-		System.out.println("Tuesday ");
-		str = in.next();
-		o.setTuesday(str.equals("yes"));
-		
-		System.out.println("Wednesday ");
-		str = in.next();
-		o.setWednesday(str.equals("yes"));
-		
-		System.out.println("Thursday ");
-		str = in.next();
-		o.setThursday(str.equals("yes"));
-		
-		System.out.println("Friday ");
-		str = in.next();
-		o.setFriday(str.equals("yes"));
-		
-		System.out.println("Saturday ");
-		str = in.next();
-		o.setSaturday(str.equals("yes"));
-		
-		System.out.println("Enter opening time");
-		from = in.nextInt();
-		o.setFrom(from);
-		
-		System.out.println("Enter closing time");
-		to = in.nextInt();
-		o.setTo(to);
 		
 		System.out.println("Enter destination contact number");
 		contact = in.next();
@@ -126,7 +145,7 @@ public class Admin {
 			p.getOh().isFriday() + "\n" + p.getOh().isSaturday() + "\n" + p.getOh().getFrom() + "\n" + 
 			p.getOh().getTo() + "\n" + p.getContactNumber() + "\n" + p.getImageUrl() + "\n" + p.getMainAttraction();
 			
-			file.write(record);
+			file.write(record + "\r\n\n");
 			file.close();
 		}
 		catch(IOException e) {

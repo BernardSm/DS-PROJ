@@ -178,7 +178,7 @@ public class Places {
 		  lastword.contains("Kingston") || lastword.contains("St. Andrew" )) {
 		  parishCode=1; }
 		  
-		  if(lastword.contains("St.Thomas")) { parishCode=2;
+		  if(lastword.contains("St. Thomas")) { parishCode=2;
 		 
 		  } if(lastword.contains("Portland")) { parishCode=3;
 		  
@@ -192,9 +192,9 @@ public class Places {
 		  
 		  } if(lastword.contains("St. Ann")) { parishCode=8;
 		  
-		  } if( lastword.contains("St.Elizabeth")) { parishCode=9; }
+		  } if( lastword.contains("St. Elizabeth")) { parishCode=9; }
 		  
-		  if(lastword.contains("St James")) { parishCode=10;
+		  if(lastword.contains("St. James")) { parishCode=10;
 		  
 		  } if(lastword.contains("Hanover")) { parishCode=11;
 		  
@@ -242,19 +242,137 @@ public class Places {
 			}else {
 				System.out.println("Attraction Id: " + id);
 				System.out.println("Attraction Name: " + name);
-				System.out.println("Description"+description);
-				System.out.println("Address"+address);
-				System.out.println("parishCode"+parishCode);
-				System.out.println("Cost"+cost);
-				System.out.println("Contact Number"+contactNumber);
+				System.out.println("Description: " + description);
+				System.out.println("Address: " + address);
+				System.out.println("parishCode: " + parishCode);
+				System.out.println("Cost: " + cost);
+				System.out.println("Contact Number: " + contactNumber);
 				System.out.println("Image URL: " + imageUrl);
-				System.out.println("Main Attraction"+mainAttraction);
+				System.out.println("Main Attraction: " + mainAttraction);
 			
 			}filereader.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("Sorry, File was not found");
 		}
 		
+	}
+	
+	public void viewCheapest() {
+		
+		Scanner Response= new Scanner(System.in);
+		System.out.println("Please enter “Which part have di cheapest [Attraction  name]");
+		String response = Response.nextLine(); 
+		String testString = " Which part have di cheapest ";
+		int testStringLength = testString.length()-1;
+		String lastword = response.substring(testStringLength);
+		String[] parts = response.split("");
+		boolean found = false;
+		boolean sunday, monday, tuesday, wednesday, thursday, friday, saturday;
+		int to, from, id=0, parishcode=0;
+		float cost=0;
+		String name="", description="", address="", contactnumber="", imageurl="", mainattraction="";
+		
+		try {
+			Scanner filereader = new Scanner(new File("places.txt"));//make sure the info is stored in one line for each record
+			
+			Places p = new Places();
+			OpeningHours oh = new OpeningHours();;
+			float lowest = 0;
+			while (filereader.hasNext()) {
+				id = filereader.nextInt();
+				filereader.nextLine();
+				name = filereader.nextLine();
+				description = filereader.nextLine();
+				address = filereader.nextLine();
+				parishcode= filereader.nextInt();
+				filereader.nextLine();
+				cost = filereader.nextFloat();
+				
+				sunday = filereader.nextBoolean(); 
+				monday = filereader.nextBoolean(); 
+				tuesday = filereader.nextBoolean();
+				wednesday = filereader.nextBoolean(); 
+				thursday = filereader.nextBoolean(); 
+				friday = filereader.nextBoolean();
+				saturday = filereader.nextBoolean();
+				to = filereader.nextInt();
+				from = filereader.nextInt();
+				contactnumber= filereader.next();
+				imageurl = filereader.next();
+				filereader.nextLine();
+				mainattraction= filereader.nextLine();
+				filereader.nextLine();
+			
+				//This if may need to be modified or removed
+				if (mainattraction.contains(lastword)) {
+					found = true;
+					
+					if(lowest == 0) {
+						lowest = cost;
+						p.setId(id);
+						p.setName(name);
+						p.setDescription(description);
+						p.setAddress(address);
+						p.setParishCode(parishcode);
+						p.setCost(cost);
+						oh.setSunday(sunday);
+						oh.setMonday(monday);
+						oh.setTuesday(tuesday);
+						oh.setWednesday(wednesday);
+						oh.setThursday(thursday);
+						oh.setFriday(friday);
+						oh.setTo(to);
+						oh.setFrom(from);
+						p.setOh(oh);
+						p.setContactNumber(contactnumber);
+						p.setImageUrl(imageurl);
+						p.setMainAttraction(mainattraction);
+					}
+					else {
+						if(cost < lowest) {
+							lowest = cost;
+							p.setId(id);
+							p.setName(name);
+							p.setDescription(description);
+							p.setAddress(address);
+							p.setParishCode(parishcode);
+							p.setCost(cost);
+							oh.setSunday(sunday);
+							oh.setMonday(monday);
+							oh.setTuesday(tuesday);
+							oh.setWednesday(wednesday);
+							oh.setThursday(thursday);
+							oh.setFriday(friday);
+							oh.setTo(to);
+							oh.setFrom(from);
+							p.setOh(oh);
+							p.setContactNumber(contactnumber);
+							p.setImageUrl(imageurl);
+							p.setMainAttraction(mainattraction);
+						}
+					}
+				}
+				
+				
+				
+			}
+			if(found == false) {
+				System.out.println("No place has this particular attraction. Please try searching for a different attraction name");
+			}else {
+				System.out.println("Attraction Id: " + p.getId());
+				System.out.println("Attraction Name: " + p.getName());
+				System.out.println("Description: " + p.getDescription());
+				System.out.println("Address: " + p.getAddress());
+				System.out.println("parishCode: " + p.getParishCode());
+				System.out.println("Cost: " + p.getCost());
+				System.out.println("Contact Number: " + p.getContactNumber());
+				System.out.println("Image URL: " + p.getImageUrl());
+				System.out.println("Main Attraction: " + p.getMainAttraction());
+			
+			}filereader.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Sorry, File was not found");
+		}
 	}
 }
 		

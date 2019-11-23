@@ -10,7 +10,6 @@ public class OpeningHours {
 	private boolean Saturday;
 	private int from;
 	private int to;
-	private boolean everyDay;
 	
 	
 	public OpeningHours() {
@@ -24,11 +23,10 @@ public class OpeningHours {
 		Saturday = false;
 		this.from = 0;
 		this.to = 0;
-		this.everyDay = false;
 	}
 
 	public OpeningHours(boolean sunday, boolean monday, boolean tuesday, boolean wednesday, boolean thursday,
-			boolean friday, boolean saturday, int from, int to, boolean everyDay) {
+			boolean friday, boolean saturday, int from, int to) {
 		super();
 		Sunday = sunday;
 		Monday = monday;
@@ -39,7 +37,6 @@ public class OpeningHours {
 		Saturday = saturday;
 		this.from = from;
 		this.to = to;
-		this.everyDay = everyDay;
 	}
 
 
@@ -47,15 +44,14 @@ public class OpeningHours {
 		super();
 		this.from = from;
 		this.to = to;
-		this.everyDay = everyDay;
-		if(everyDay) {
-			Sunday = true;
-			Monday = true;
-			Tuesday = true;
-			Wednesday = true;
-			Thursday = true;
-			Friday = true;
-			Saturday = true;
+		if(everyDay) { //try to put backup if everyday value is false
+			this.Sunday = true;
+			this.Monday = true;
+			this.Tuesday = true;
+			this.Wednesday = true;
+			this.Thursday = true;
+			this.Friday = true;
+			this.Saturday = true;
 		}
 	}
 
@@ -129,14 +125,6 @@ public class OpeningHours {
 
 	public void setTo(int to) {
 		this.to = to;
-	}
-
-	public boolean isEveryDay() {
-		return everyDay;
-	}
-
-	public void setEveryDay(boolean everyDay) {
-		this.everyDay = everyDay;
 	}
 
 
