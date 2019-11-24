@@ -1,5 +1,5 @@
 7899
-ribbiz ocern lounge
+Ribbiz ocean lounge
 Restaurant with a vibe and a view of the ocean
 13 orange street Kingston
 1
@@ -54,4 +54,42 @@ true
 8761001001
 the100.com
 food
+
+9505
+Dunns River Falls
+A Famous Waterfall in Jamaica 
+Ochio Rios, St. Ann
+8
+600.0
+true
+true
+true
+true
+true
+true
+true
+7
+8
+8769744767
+https://media.tacdn.com/media/attractions-splice-spp-674x446/06/71/23/de.jpg
+Waterfall
+
+4984
+Hellshire Beach
+Local beach in Portmore Jamaica
+Hellshire Portmore, St. Catherine
+5
+0.0
+true
+true
+true
+true
+true
+true
+true
+6
+12
+3462825
+http//:hellshirebeach.com
+Beach
 

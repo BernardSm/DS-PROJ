@@ -132,11 +132,12 @@ public class Places {
 	//To String Method
 	@Override
 	public String toString() {
-		return "Places [id=" + id + ", name=" + name + ", description=" + description + ", address=" + address
-				+ ", parishCode=" + parishCode + ", cost=" + cost + ", contactNumber=" + contactNumber
-				+ ", mainAttraction=" + mainAttraction + "]";
-	};
+		return " Id: " + id + "\n\n Name: " + name + "\n\n Description: " + description + "\n\n Address: " + address
+				+ "\n\n Parish Code: " + parishCode + "\n\n cost: " + cost + "\n\n Contact Number: " + contactNumber
+				+ "\n\n MainAttraction: " + mainAttraction + "\n\n";
 
+	};
+	
 	//Displays the values of the attributes 
 	public void display() {
 		System.out.println(toString());
@@ -167,10 +168,7 @@ public class Places {
 		int testStringLength = testString.length();
 		
 		String lastword = response.substring(testStringLength);
-		//String[] parts = response.split("");
-		//String lastword =parts[parts.length - testStringlength];
 		
-		System.out.println(lastword);
 		boolean itemFound = false;
 		
 		
@@ -240,15 +238,17 @@ public class Places {
 			if(itemFound == false) {
 				System.out.println("Place was not found");
 			}else {
-				System.out.println("Attraction Id: " + id);
-				System.out.println("Attraction Name: " + name);
-				System.out.println("Description: " + description);
-				System.out.println("Address: " + address);
-				System.out.println("parishCode: " + parishCode);
-				System.out.println("Cost: " + cost);
-				System.out.println("Contact Number: " + contactNumber);
-				System.out.println("Image URL: " + imageUrl);
-				System.out.println("Main Attraction: " + mainAttraction);
+				System.out.println("\n\nAttraction Id: " + id);
+				System.out.println("\nAttraction Name: " + name);
+				System.out.println("\nDescription: " + description);
+				System.out.println("\nAddress: " + address);
+				System.out.println("\nparishCode: " + parishCode);
+				System.out.println("\nCost: " + cost);
+				System.out.println("\nContact Number: " + contactNumber);
+				System.out.println("\nImage URL: " + imageUrl);
+				System.out.println("\nMain Attraction: " + mainAttraction);
+				System.out.println("\n\n");
+				System.out.println("=====================================================================\n\n");
 			
 			}filereader.close();
 		} catch (FileNotFoundException e) {
@@ -260,7 +260,7 @@ public class Places {
 	public void viewCheapest() {
 		
 		Scanner Response= new Scanner(System.in);
-		System.out.println("Please enter “Which part have di cheapest [Attraction  name]");
+		System.out.println("Please enter 'Which part have di cheapest [Attraction name]'");
 		String response = Response.nextLine(); 
 		String testString = " Which part have di cheapest ";
 		int testStringLength = testString.length()-1;
@@ -359,16 +359,17 @@ public class Places {
 			if(found == false) {
 				System.out.println("No place has this particular attraction. Please try searching for a different attraction name");
 			}else {
-				System.out.println("Attraction Id: " + p.getId());
-				System.out.println("Attraction Name: " + p.getName());
-				System.out.println("Description: " + p.getDescription());
-				System.out.println("Address: " + p.getAddress());
-				System.out.println("parishCode: " + p.getParishCode());
-				System.out.println("Cost: " + p.getCost());
-				System.out.println("Contact Number: " + p.getContactNumber());
-				System.out.println("Image URL: " + p.getImageUrl());
-				System.out.println("Main Attraction: " + p.getMainAttraction());
-			
+				System.out.println("\n\nAttraction Id: " + p.getId());
+				System.out.println("\nAttraction Name: " + p.getName());
+				System.out.println("\nDescription: " + p.getDescription());
+				System.out.println("\nAddress: " + p.getAddress());
+				System.out.println("\nparishCode: " + p.getParishCode());
+				System.out.println("\nCost: " + p.getCost());
+				System.out.println("\nContact Number: " + p.getContactNumber());
+				System.out.println("\nImage URL: " + p.getImageUrl());
+				System.out.println("\nMain Attraction: " + p.getMainAttraction());
+				System.out.println("\n\n");
+				System.out.println("=====================================================================\n\n");
 			}filereader.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("Sorry, File was not found");

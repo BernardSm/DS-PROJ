@@ -16,22 +16,28 @@ public class Driver {
 		Scanner in = new Scanner(System.in);
 		PlaceTree list = new PlaceTree();
 		RequestQueue q = new RequestQueue();
+	
+		
 
 		while (opt != 3) {
 
-			System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
-			System.out.println("||                                 Welcome To                             ||");
-			System.out.println("||                              Di Good Ting Dem!!                        ||");
-			System.out.println("||''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''||");
-			System.out.println("||  Before Entering the system please indicate which type of user are you ||");
-			System.out.println("|| (1) Admin                                                              ||");
-			System.out.println("|| (2) Visitor                                                            ||");
-			System.out.println("|| (3) Exit                                                               ||");
-			System.out.println("||                                                                        ||");
-			System.out.println("||                                                                        ||");
-			System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+			System.out.println(" ==========================================================================");
+			System.out.println("|                        ***** WELCUM TUH *****                            |");
+			System.out.println("|                       DI GOOD PLACE DEM KIOSKS                           |");
+			System.out.println("|''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''  |");
+			System.out.println("|  Before Entering the system please indicate what type of user you are    |");
+			System.out.println("|                                                                          |");
+			System.out.println("| (1) Administrator / Administrata                                         |");
+			System.out.println("| (2) Visitor / Visita                                                     |");
+			System.out.println("| (3) Exit / Guope                                                         |");
+  			System.out.println("|                                                                          |");
+			System.out.println("|                                                                          |");
+			System.out.println(" ==========================================================================\n");
+			
+			System.out.println("Enter response Here: \n"); 
 			opt = in.nextInt();
-
+			System.out.println("============================================================================\n\n");
+			
 			switch (opt) {
 			
 			case 1:
@@ -59,17 +65,23 @@ public class Driver {
 
 	
 	
-	
+
 	public static void adminMenu(Scanner in, Admin a, PlaceTree list, RequestQueue q) {
+		RequestStack Plog = new RequestStack();
 		int opt1 = 0;
-		while (opt1 != 4) {
-			// System.out.println("\n::Before Entering the system please indicate which type
-			// of user are you::\n");
-			System.out.println("::[1] Add a place \t\t\t::\n");
-			System.out.println("::[2] View places \t\t\t::\n");
-			System.out.println("::[3] View visitor requests \t\t\t::\n");
-			System.out.println("::[4] Exit \t\t\t\t::\n");
+		while (opt1 != 6) {
+			
+			System.out.println("[1] Add a place \n");
+			System.out.println("[2] View places \n");
+			System.out.println("[3] View visitor requests \n");
+			System.out.println("[4] Process Requests \n");
+			System.out.println("[5] View Process Log \n");
+			System.out.println("[6] Exit \n");
+			System.out.println("Enter response Here: \n"); 
 			opt1 = in.nextInt();
+			System.out.println("============================================================================\n\n");
+			
+			
 
 			switch (opt1) {
 			case 1:
@@ -85,6 +97,13 @@ public class Driver {
 				break;
 
 			case 4:
+				q.ProcessRequest(Plog);
+				break;
+			case 5:
+				Plog.ViewStack();
+				break;
+			case 6:
+				
 				break;
 
 			default:
@@ -100,15 +119,16 @@ public class Driver {
 	public static void visitorMenu(Scanner in, Visitor v, Places p, RequestQueue q) {
 		int opt2 = 0;
 		while (opt2 != 5) {
-			// System.out.println("\n::Before Entering the system please indicate which type
-			// of user are you::\n");
-			System.out.println("::[1] View Creole Phrases \t\t\t::\n");
-			System.out.println("::[2] View Attractions in Parishes \t\t\t::\n");
-			System.out.println("::[3] Find Cheapest attraction\t\t\t::\n");
-			System.out.println("::[4] Request additional details on Attractions \t\t\t\t::\n");
-			System.out.println("::[5] Exit \t\t\t\t::\n");
-
+			
+			System.out.println("[1] View Creole Phrases \n");
+			System.out.println("[2] View Attractions in Parishes \n");
+			System.out.println("[3] Find Cheapest attraction\n");
+			System.out.println("[4] Request additional details on Attractions \n");
+			System.out.println("[5] Exit \n");
+			System.out.println("Enter response Here: \n"); 
 			opt2 = in.nextInt();
+			System.out.println("============================================================================\n\n");
+			
 
 			switch (opt2) {
 			case 1:

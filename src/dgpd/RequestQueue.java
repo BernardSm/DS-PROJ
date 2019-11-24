@@ -1,5 +1,7 @@
 package dgpd;
 
+import java.util.Scanner;
+
 public class RequestQueue {
 	private RequestNode  front;
 	private RequestNode  tail;
@@ -93,4 +95,27 @@ public class RequestQueue {
 			dequeue();
 		}
 	}
+	
+	public void ProcessRequest(RequestStack stack){
+		Scanner input = new Scanner(System.in);
+		int pin;
+		RequestNode process = getHead();
+		 if(process!=null)
+			{
+				System.out.println("Visitor Name: "+process.getData().getFname() 
+						+"\nVisitor Email: " + process.getData().getEmail()+
+						"\nAttraction ID: " + process.getData().getA_id()+
+						"\nAttraction: "+process.getData().getA_name()+
+						"\nMessage: " + process.getData().getMessage()+
+						"\nRequestID: "+ process.getData().getA_id()+"\n\n");
+				System.out.println("Enter 1 to process\n");
+				pin = input.nextInt();
+				if(pin == 1)
+				{
+					stack.Push(dequeue());				
+				}
+		
+			}
+		}
+
 }

@@ -11,13 +11,19 @@ public class Visitor {
 
 	
 	public void Creaole_Phases() {
-		System.out.println("Creale Phrase \t Translation");
-		System.out.println("Mi Soon Come-\t I am coming soon");
-		System.out.println("Weh yuh ah seh-\t  What are you saying");
-		System.out.println("Inna di morrows-\t I will see you later");
-		System.out.println("Wah Gwaan-\t What is up with you");
-		System.out.println("yu good-\t Are you okay?");
-		System.out.println("");
+		System.out.println("______________________________________________");
+		System.out.println("|Creale Phrase         |       Translation    |");
+		System.out.println("|______________________|______________________|");
+		System.out.println("|Mi Soon Come          |I am coming soon      |");
+		System.out.println("|                      |                      |");
+		System.out.println("|Weh yuh ah seh        |What are you saying   |");
+		System.out.println("|                      |                      |");
+		System.out.println("|Inna di morrows       |I will see you later  |");
+		System.out.println("|                      |                      |");
+		System.out.println("|Wah Gwaan             |What is up with you   |");
+		System.out.println("|                      |                      |");
+		System.out.println("|yu good?              |Are you okay?         |");
+		System.out.println("|______________________|______________________|\n\n");
 		
 	}
 	public void SearchTree() throws IOException {
@@ -90,7 +96,7 @@ public class Visitor {
 			
 			// display time and date using toString()
 		    date.toString();//write the auto generated date to the file
-		    System.out.println("2\n");
+		    System.out.println("\n");
 			
 		    System.out.println("Are you finished");
 			System.out.println("1 for Yes");
@@ -99,7 +105,7 @@ public class Visitor {
 				 
 			switch(choice) {
 				case 1:
-					System.out.println("Thank you for using the program ...........:");		
+					System.out.println("Thank you for using the program ...........\n\n");		
 					break;
 				
 				case 2:
@@ -107,12 +113,12 @@ public class Visitor {
 					 break;
 				 
 				default:
-					System.out.println("Invalid selection, try again\n");
+					System.out.println("Invalid selection, try again\n\n");
 
 			}
 			
 		}catch(Exception x) {
-			System.out.println("FILE Acesserror. could not save");
+			System.out.println("FILE Acesserror. could not save \n");
 		}
 	}
 	

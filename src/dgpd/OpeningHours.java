@@ -11,7 +11,7 @@ public class OpeningHours {
 	private int from;
 	private int to;
 	
-	
+	//Constructors
 	public OpeningHours() {
 		super();
 		Sunday = false;
@@ -54,7 +54,7 @@ public class OpeningHours {
 			this.Saturday = true;
 		}
 	}
-
+	//Getters & Setters
 	public boolean isSunday() {
 		return Sunday;
 	}
