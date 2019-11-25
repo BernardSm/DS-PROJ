@@ -64,11 +64,12 @@ public class Visitor {
 			
 			
 			System.out.println("Enter your Attraction ID");
-			A_id= scanner.next(); 
+			A_id= scanner.next();
+			scanner.nextLine();
 			
 			
 			System.out.println("Enter your Attraction name");
-			A_name= scanner.next(); 
+			A_name= scanner.nextLine(); 
 			
 			
 			System.out.println("Please write a message that you would like to leave with the extablishment");
