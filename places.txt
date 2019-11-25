@@ -93,3 +93,22 @@ true
 http//:hellshirebeach.com
 Beach
 
+439
+ribbiz
+this is a boasty place
+12 hope road Kingston
+1
+500.0
+true
+true
+true
+true
+true
+true
+false
+8
+4
+8761234567
+ribbiz.com
+food
+
